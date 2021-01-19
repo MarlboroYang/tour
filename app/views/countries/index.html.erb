@@ -1,0 +1,18 @@
+<h1>各國列表</h1>
+<%= current_user.name %>
+<%= link_to "新增國家", new_country_path %>
+
+<ul>
+<% @countries.each do |country|%>
+<li>
+<%= link_to country.country_name, country %>
+
+<%= link_to "編輯", edit_country_path(country) %>
+
+<%= link_to "刪除", country, method: 'delete', data: { confirm: "確認刪除嗎？" } %>
+
+
+</li>
+<% end %>
+</ul>
+
