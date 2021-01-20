@@ -1,0 +1,10 @@
+我是修改
+<%= form_for(@city) do |f| %>
+  <%= f.label :city_name, '城市名稱' %>
+  <%= f.text_field :city_name %>
+  
+  <%= f.label :content, '城市介紹'%>
+  <%= f.text_area :content %>
+
+  <%= f.submit %>
+<% end %>

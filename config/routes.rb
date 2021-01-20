@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   root to: "countries#index"
 
-  resources :countries
+  resources :countries do
+    resources :cities, shallow: true
+  end
 end

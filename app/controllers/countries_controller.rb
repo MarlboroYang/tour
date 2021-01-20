@@ -35,31 +35,12 @@ class CountriesController < ApplicationController
     redirect_to countries_path, notice: "看版已刪除"
   end
 
-  # def hide
-  #   authorize @board, :hide?
-  #   @board.hide! if @board.may_hide?
-  #   redirect_to boards_path, notice: '看板去旅遊了！ '
-  # end
 
-  # def open
-  #   @board.open! if @board.may_open?
-  #   redirect_to boards_path, notice: '看板回來了！ '
-  # end
-
-  # def lock
-  #   @board.lock! if @board.may_lock?
-  #   redirect_to boards_path, notice: '看板去睡了！ '
-  # end
-
-  # def show
-  #   @posts = @board.posts.order(id: :desc).page(params[:page]).per(10)
-  # end
+  def show
+    @cities = @country.cities.order(id: :desc)
+  end
 
   private
-
-  # def set_post
-  #   @post = current_user.posts.find(params[:id])
-  # end
 
   def find_country
     @country = current_user.countries.find(params[:id])

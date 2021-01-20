@@ -1,0 +1,12 @@
+<h1>各城市介紹</h1>
+
+
+<%= form_for(@city, url: country_cities_path(@country)) do |f| %>
+  <%= f.label :city_name, '城市名稱' %>
+  <%= f.text_field :city_name %>
+  
+  <%= f.label :content, '城市介紹'%>
+  <%= f.text_area :content %>
+
+  <%= f.submit %>
+<% end %>

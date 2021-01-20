@@ -1,0 +1,22 @@
+<h1><%= @country.country_name %></h1>
+<%= current_user.name %>
+<%= link_to "新增城市", new_country_city_path(@country) %>
+
+<ul>
+  <li><h1>各城市介紹</h1></li>
+
+  <% @cities.each do |city| %>
+    <li>
+      <%= link_to city.city_name, city %>
+
+      <%= city.content %>
+
+      <%= link_to "編輯", edit_city_path(city) %>
+
+      <%= link_to "刪除", city, method: 'delete', data: { confirm: "確認刪除嗎？" } %>
+
+    </li>
+  <% end %>
+</ul>
+<%= link_to '回到城市頁面', url: country_path(@country) %>
+<%= link_to '回到國家頁面', root_path %>

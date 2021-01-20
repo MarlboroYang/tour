@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_19_055843) do
+ActiveRecord::Schema.define(version: 2021_01_19_075150) do
+
+  create_table "cities", force: :cascade do |t|
+    t.string "city_name"
+    t.text "content"
+    t.string "slug"
+    t.string "state", default: "open"
+    t.datetime "deleted_at"
+    t.integer "user_id", null: false
+    t.integer "country_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_cities_on_country_id"
+    t.index ["slug"], name: "index_cities_on_slug", unique: true
+    t.index ["user_id"], name: "index_cities_on_user_id"
+  end
 
   create_table "countries", force: :cascade do |t|
     t.string "country_name"
@@ -46,5 +61,7 @@ ActiveRecord::Schema.define(version: 2021_01_19_055843) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cities", "countries"
+  add_foreign_key "cities", "users"
   add_foreign_key "countries", "users"
 end
