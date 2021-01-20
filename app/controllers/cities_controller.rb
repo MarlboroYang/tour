@@ -4,7 +4,7 @@ class CitiesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @cities = City.all
+    @cities = City.all.page(params[:page]).per(5)
   end
 
   def new 

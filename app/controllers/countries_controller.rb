@@ -3,7 +3,7 @@ class CountriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @countries = Country.all
+    @countries = Country.all.page(params[:page]).per(5)
   end
 
   def new 
@@ -37,7 +37,7 @@ class CountriesController < ApplicationController
 
 
   def show
-    @cities = @country.cities.order(id: :desc)
+    @cities = @country.cities.order(id: :desc).page(params[:page]).per(5)
   end
 
   private
