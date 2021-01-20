@@ -11,6 +11,12 @@
 
 <%= link_to "刪除", country, method: 'delete', data: { confirm: "確認刪除嗎？" } %>
 
+<%= link_to "隱藏", hide_country_path(country), method: 'patch' if check?(country, :hide) %>
+
+<%= link_to "開放", open_country_path(country), method: 'patch' if  check?(country, :open) %>
+
+<%= link_to "鎖定", lock_country_path(country), method: 'patch' if check?(country, :lock) %>
+
 
 </li>
 <% end %>

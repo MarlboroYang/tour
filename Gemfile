@@ -30,6 +30,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise', '~> 4.7', '>= 4.7.3' #會員系統
 gem 'paranoia', '~> 2.4', '>= 2.4.3' #軟刪除
 gem 'kaminari', '~> 0.17.0' #分頁工具
+gem 'pundit', '~> 2.1'  #使用者權限工具
+gem 'aasm', '~> 5.1', '>= 5.1.1' #狀態機
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
